@@ -1,0 +1,28 @@
+\chapter{IMPLEMENTASI}
+
+\section{Struktur Sistem}
+Bagian ini menjelaskan bagaimana pekerjaan Anda dibangun atau dirancang. Deskripsikan komponen-komponen utama, hubungan di antara mereka, dan alur kerja secara keseluruhan. Gunakan diagram atau skema jika itu lebih jelas daripada paragraf panjang.
+
+Tuliskan juga keputusan-keputusan penting yang Anda ambil selama proses implementasi: mengapa memilih teknologi tertentu, mengapa struktur data dipilih demikian, atau mengapa pendekatan A lebih tepat daripada pendekatan B. Penjelasan "mengapa" sering kali lebih bernilai daripada sekadar penjelasan "apa."
+
+\section{Source Code}
+Jika pekerjaan Anda melibatkan kode, tampilkan potongan-potongan yang paling relevan di sini. Tidak perlu mencantumkan seluruh kode; pilih bagian-bagian yang menunjukkan logika inti atau bagian yang paling penting untuk dipahami pembaca.
+
+Template ini sudah dikonfigurasi untuk menampilkan kode dengan penomoran per-bab dan penyorongan sintaks untuk beberapa bahasa pemrograman. Kode yang ditampilkan akan diberi nomor otomatis (misalnya Kode 3.1, Kode 3.2) sehingga bisa dirujuk dari teks.
+
+\begin{lstlisting}[language=SQL, caption={Contoh query SQL}]
+SELECT id, nama, nilai
+FROM mahasiswa
+WHERE nilai >= 75
+ORDER BY nilai DESC;
+\end{lstlisting}
+
+\begin{lstlisting}[language=TypeScript, caption={Contoh fungsi TypeScript}]
+function hitungRataRata(nilai: number[]): number {
+  if (nilai.length === 0) return 0;
+  const total = nilai.reduce((acc, n) => acc + n, 0);
+  return total / nilai.length;
+}
+\end{lstlisting}
+
+Untuk setiap blok kode, sertakan caption yang menjelaskan apa yang dilakukan kode tersebut, dan rujuknya dari teks di sekitarnya. Jelaskan juga bagian mana yang paling penting dan mengapa.

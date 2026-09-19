@@ -1,0 +1,40 @@
+\chapter{PEMBAHASAN}
+
+\section{Konsep Dasar}
+Bab ini adalah ruang utama untuk landasan teori dan pembahasan. Mulailah dengan mendefinisikan istilah-istilah kunci yang akan digunakan di seluruh dokumen, kemudian kembangkan setiap konsep dengan penjelasan yang cukup mendalam agar pembaca yang belum familiar tetap bisa mengikuti alur.
+
+Struktur yang disarankan: setiap subbab membahas satu konsep atau satu sisi dari topik. Jangan mencampurkan dua konsep berbeda dalam satu subbab karena akan membingungkan. Jika suatu konsep memiliki beberapa aspek, pecah lagi menjadi sub-subbab.
+
+Gunakan kalimat aktif sebisa mungkin. Tulis "penelitian ini menggunakan metode X" alih-alih "metode X digunakan oleh penelitian ini." Kalimat aktif lebih ringkas dan lebih mudah dipahami. Pendekatan ini sejalan dengan rekomendasi yang diberikan oleh Lee dan Kim \parencite{lee2019} terkait efisiensi penyajian informasi teknis.
+
+\section{Gambar}
+Gambar digunakan untuk memperjelas hal-hal yang sulit diungkapkan dengan kata saja: diagram alur, arsitektur sistem, grafik hasil, tangkapan layar, atau skema. Setiap gambar wajib memiliki caption yang menjelaskan isinya secara ringkas, serta label agar bisa dirujuk dari teks.
+
+Untuk menambahkan gambar, letakkan file gambarnya di dalam folder \texttt{assets/} lalu gunakan perintah \texttt{\textbackslash insertimage} yang sudah disediakan template ini. Perintah tersebut menerima tiga informasi: lokasi file gambar, teks caption, dan label. Satu kelebihan dari perintah ini adalah jika file gambarnya belum ada atau namanya belum cocok, dokumen tetap bisa dikompilasi dan akan menampilkan kotak placeholder abu-abu di tempat seharusnya gambar muncul. Ini sangat berguna saat Anda menulis teks terlebih dahulu dan baru akan mengisi gambarnya nanti.
+
+\insertimage{assets/contoh-gambar.png}{Contoh gambar yang disisipkan menggunakan helper template}{fig:contoh}
+
+Setelah gambar disisipkan, rujuk ia dari teks dengan menyebutkan kata "Gambar" diikuti nomor referensinya. Jangan biarkan gambar berdiri tanpa konteks; selalu ada kalimat di sekitarnya yang menjelaskan apa yang ditunjukkan gambar tersebut dan mengapa ia relevan dengan paragraf yang sedang dibahas.
+
+\section{Tabel}
+Tabel dipakai untuk menyajikan data terstruktur: perbandingan, ringkasan statistik, klasifikasi, atau data mentah yang perlu dirujuk. Setiap tabel juga diberi caption dan label seperti gambar, sehingga bisa dirujuk dari teks.
+
+Template ini menggunakan lingkungan \texttt{tabularx} yang lebar kolomnya otomatis menyesuaikan lebar halaman. Kolom bertipe \texttt{X} akan meregang untuk mengisi sisa ruang, sehingga teks di dalamnya bisa mengalir beberapa baris tanpa keluar dari margin. Gunakan garis atas dan bawah yang tebal untuk memisahkan header dari isi, serta garis tipis di antaranya jika tabel memiliki banyak baris.
+
+\begin{table}[H]
+    \centering
+    \caption{Contoh tabel dengan beberapa kolom}
+    \label{tab:contoh}
+    \begin{tabularx}{\textwidth}{| l | l | X |}
+        \hline
+        \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Keterangan} \\ \hline
+        Data A & 123 & Penjelasan singkat untuk baris pertama \\ \hline
+        Data B & 456 & Penjelasan singkat untuk baris kedua \\ \hline
+        Data C & 789 & Penjelasan singkat untuk baris ketiga \\ \hline
+    \end{tabularx}
+\end{table}
+
+Seperti terlihat pada Tabel~\ref{tab:contoh}, setiap baris memiliki identitas, nilai, dan deskripsi. Rujuk tabel dari teks dengan menyebut "Tabel" diikuti nomor referensinya, dan jelaskan apa yang ingin pembaca perhatikan dari tabel tersebut.
+
+\section{Penomoran Otomatis}
+Seluruh nomor gambar, tabel, dan kode dalam dokumen ini dihitung per-bab secara otomatis. Artinya, gambar pertama di bab ini akan bernomor 2.1, gambar kedua 2.2, dan seterusnya. Tabel dan kode mengikuti pola yang sama. Anda tidak perlu mengetik nomor secara manual; cukup berikan label dan biarkan sistem penomoran menangani sisanya. Jika Anda menambah atau menghapus gambar di tengah dokumen, semua nomor di belakangnya akan bergeser dengan sendirinya saat dokumen dikompilasi ulang.

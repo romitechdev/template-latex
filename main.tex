@@ -1,0 +1,63 @@
+% ==================================================================
+%  MAIN DOCUMENT (BERKAS UTAMA)
+%  ------------------------------------------------------------------
+%  Project LaTeX Reusable untuk Tugas Kuliah.
+%  Silakan edit isi bab di dalam folder `sections/` dan 
+%  profil data diri di folder `config/metadata.tex`.
+% ==================================================================
+\documentclass[12pt, a4paper, onecolumn, oneside]{report}
+
+% ------------------------------------------------------------------
+%  Memuat Konfigurasi (Metadata, Paket, Pengaturan, dan Perintah)
+% ------------------------------------------------------------------
+\input{config/metadata.tex}
+\input{config/packages.tex}
+\input{config/settings.tex}
+\input{config/commands.tex}
+
+% ------------------------------------------------------------------
+%  Dokumen Dimulai
+% ------------------------------------------------------------------
+\begin{document}
+
+%  1. Bagian Sampul (Cover)
+\include{sections/cover}
+
+% Mulai penomoran romawi kecil untuk halaman pengantar
+\pagestyle{frontmatter}
+\pagenumbering{roman}
+\setcounter{page}{2} % Kata Pengantar mulai di halaman (ii) apabila disyaratkan
+
+%  2. Kata Pengantar
+\include{sections/kata-pengantar}
+
+%  3. Daftar Isi, Gambar, dan Tabel
+\clearpage
+\tableofcontents
+\clearpage
+\listoftables
+\clearpage
+\listoffigures
+\clearpage
+
+% Mulai isi laporan
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%  4. Konten Utama (Bab 1 - 5)
+\include{sections/bab1}
+\include{sections/bab2}
+\include{sections/bab3}
+\include{sections/bab4}
+\include{sections/bab5}
+
+%  5. Daftar Pustaka
+\clearpage
+\addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+\printbibliography[title={\centering DAFTAR PUSTAKA}]
+
+%  6. Lampiran (Opsional, gunakan \appendix)
+\include{sections/lampiran}
+
+\end{document}

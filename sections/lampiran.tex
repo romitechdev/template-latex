@@ -1,0 +1,38 @@
+\chapter*{LAMPIRAN}
+\addcontentsline{toc}{chapter}{LAMPIRAN}
+\appendix
+\inappendixtrue
+
+\chapter{DOKUMENTASI}
+Lampiran ini berisi tangkapan layar atau dokumentasi visual yang mendukung isi laporan. Setiap tangkapan layar diberi caption yang menjelaskan apa yang ditampilkan dan dalam konteks apa ia diambil.
+
+\insertimage{assets/contoh-gambar.png}{Tangkapan layar pertama yang menunjukkan hasil awal}{fig:lampiran-1}
+
+\insertimage{assets/contoh-gambar.png}{Tangkapan layar kedua yang menunjukkan hasil akhir}{fig:lampiran-2}
+
+\chapter{SOURCE CODE}
+Lampirkan kode lengkap atau skrip yang tidak muat atau tidak relevan untuk ditampilkan di bab pembahasan. Kode di sini tidak harus diberi penjelasan detail; cukup caption singkat yang menyebutkan apa fungsinya.
+
+\begin{lstlisting}[language=SQL, caption={Skrip lengkap pembuatan tabel}]
+CREATE TABLE contoh (
+    id    INT AUTO_INCREMENT PRIMARY KEY,
+    nama  VARCHAR(100) NOT NULL,
+    dibuat DATETIME DEFAULT NOW()
+);
+\end{lstlisting}
+
+\chapter{DATA TAMBAHAN}
+Data mentah, hasil pengujian, atau tabel referensi yang terlalu panjang untuk diletakkan di bab utama bisa dipindahkan ke sini.
+
+\begin{table}[H]
+    \centering
+    \caption{Contoh data pengujian}
+    \label{tab:data-lampiran}
+    \begin{tabularx}{\textwidth}{| c | c | X |}
+        \hline
+        \textbf{No.} & \textbf{Kasus} & \textbf{Keterangan} \\ \hline
+        1 & Kasus A & Penjelasan untuk kasus A \\ \hline
+        2 & Kasus B & Penjelasan untuk kasus B \\ \hline
+        3 & Kasus C & Penjelasan untuk kasus C \\ \hline
+    \end{tabularx}
+\end{table}
