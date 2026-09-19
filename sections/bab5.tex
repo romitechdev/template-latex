@@ -1,0 +1,11 @@
+\chapter{PENUTUP}
+
+\section{Kesimpulan}
+Dari hasil implementasi dan pengujian yang terdokumentasikan dalam laporan percobaan ini, dapat disimpulkan bahwa konfigurasi \textit{trigger} di dalam entitas (\textit{database}) berhasil menjadi gerbang mutlak penjaga sejarah perubahan yang independen dan solid. Terlepas dari \textit{interface} mana modifikasi disuntikkan, pelaporan pada \textit{audit trail} berjalan transparan tanpa hambatan berarti secara latensi.
+
+\section{Saran}
+Saran yang dapat diberikan dari makalah ini adalah:
+\begin{enumerate}
+    \item Pengecekan ukuran tabel \textit{audit} harus disertai rotasi tabel (log rotation) karena lonjakan DML yang besar menimbulkan resiko ukuran basis data yang tidak wajar.
+    \item Untuk meminimalisir interupsi jika log terhenti, diperlukan pemindahan beban rekam jejak pada perangkat lunak khusus terdistribusi jika pada lingkungannya diperlukan performa baca ulang tinggi.
+\end{enumerate}

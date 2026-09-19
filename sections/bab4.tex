@@ -1,0 +1,23 @@
+\chapter{HASIL DAN PEMBAHASAN}
+
+\section{Skenario Uji Coba}
+Pengujian dilakukan terhadap sekumpulan entitas log untuk memeriksa ketahanan integrasi sesuai standar.
+
+\begin{table}[H]
+    \centering
+    \caption{Data Hasil Pengujian Trigger}
+    \label{tab:pengujian}
+    \begin{tabularx}{\textwidth}{@{} c c X c @{}}
+        \toprule
+        \textbf{ID Tes} & \textbf{Jenis DML} & \textbf{Hasil pada Log} & \textbf{Status Target} \\
+        \midrule
+        1 & INSERT & Memunculkan catatan `BARU` di tabel log & Berhasil \\
+        2 & UPDATE & Memunculkan catatan `UBAH` di tabel log & Berhasil \\
+        3 & DELETE & Memunculkan catatan `HAPUS` di tabel log & Berhasil \\
+        4 & DROP & Tidak terekam (Sesuai DDL definition) & Sesuai \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{Pembahasan}
+Berlandaskan hasil pada Tabel~\ref{tab:pengujian}, penggunaan \textit{trigger} berhasil memastikan tidak adanya transaksi manipulasi data tunggal yang gagal dicatat pada entri basis data. Pendekatan DML (\textit{Data Manipulation Language}) direkam dalam bentuk salinan keadaan sebelum (\texttt{OLD}) dan entri setelah diperbarui (\texttt{NEW}).

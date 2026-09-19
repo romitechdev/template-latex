@@ -1,0 +1,23 @@
+\chapter{PENDAHULUAN}
+
+\section{Latar Belakang}
+Basis data yang andal memerlukan mekanisme yang menjamin agar tidak ada perubahan data tanpa jejak yang terperinci. Salah satu cara mengontrol kualitas data adalah dengan pemanfaatan basis data tahap lanjut, menggunakan pemicu (\textit{trigger}) pada level \textit{Relational Database Management System} (RDBMS). Pendekatan ini ditujukan agar tidak bergantung pada lapisan aplikasi untuk pencatatan (\textcite{silberschatz2019}). Hal ini sejalan dengan penelitian yang menyatakan transparansi pengolahan penting terhadap kualitas basis data secara menyeluruh.
+
+Implementasi ini penting untuk memenuhi standar rekam jejak atau (\textit{audit trail}) dengan mendeteksi berbagai anomali manipulasi data (\parencite{korth2020}).
+
+\section{Rumusan Masalah}
+Berdasarkan latar belakang tersebut, rumusan masalah dalam laporan ini adalah sebagai berikut:
+\begin{enumerate}
+    \item Bagaimana merancang dan menerapkan \textit{trigger} untuk memfasilitasi kebutuhan \textit{audit trail}?
+    \item Bagaimana mengevaluasi integritas data sebelum dan sesudah penerapan \textit{trigger}?
+\end{enumerate}
+
+\section{Tujuan}
+Tujuan dari dokumentasi atau eksperimen ini adalah:
+\begin{enumerate}[label=\alph*.]
+    \item Membuat fungsi pemicu yang mencatat setiap pengubahan pada tabel produk dan transaksi.
+    \item Mengukur tingkat reliabilitas mekanisme rekam jejak (\textit{audit trail}).
+\end{enumerate}
+
+\section{Manfaat}
+Laporan percobaan ini diharapkan dapat digunakan sebagai dokumentasi dan referensi ketika menghadapi kebutuhan rekaman transaksi secara independen di sistem RDBMS pada perangkat lunak berskala besar.

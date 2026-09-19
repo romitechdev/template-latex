@@ -1,0 +1,22 @@
+\chapter{LANDASAN TEORI}
+
+\section{Konsep Audit Trail}
+Rekam jejak (\textit{audit trail}) atau log audit merupakan kontrol keamanan yang mengumpulkan pencatatan log pada perangkat lunak secara urut, dan ditujukan agar pencatatan ini tidak bisa atau sulit diubah setelah tercatat. Rangkuman data tersebut mempermudah pengidentifikasian kapan sistem berjalan baik maupun terjadi kebocoran manipulasi.
+
+\insertimage{assets/contoh-gambar.png}{Arsitektur sistem rekam jejak menggunakan pemisahan skema log}{fig:arsitektur}
+
+Pada Gambar~\ref{fig:arsitektur} ditunjukkan pemisahan skema fungsional dan logikal log.
+
+\section{Trigger pada Basis Data}
+\textit{Trigger} merupakan sekumpulan perintah SQL yang dipicu secara otomatis oleh sistem manakala terjadi operasi \texttt{INSERT}, \texttt{UPDATE}, atau \texttt{DELETE} pada suatu tabel di \textit{database}.
+
+\subsection{Kelebihan Trigger}
+Terdapat beberapa keunggulan trigger dibandingkan pendekatan eksternal aplikasi:
+\begin{enumerate}
+    \item Terpusat pada tingkat \textit{database}.
+    \item Tidak ada perubahan baris pada aplikasi eksternal (backend) untuk fungsi yang sama.
+    \item Pemicu pasti tereksekusi tanpa peduli dari klien (API/CLI) mana perubahan diproses.
+\end{enumerate}
+
+\subsection{Kekurangan Trigger}
+Di sisi lain, terdapat peruntukan komputasi lebih pada \textit{database source} sehingga terkadang menimbulkan kelambatan jika prosedur di dalamnya terlampau masif.

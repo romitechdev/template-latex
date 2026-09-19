@@ -1,0 +1,44 @@
+\chapter*{LAMPIRAN}
+\addcontentsline{toc}{chapter}{LAMPIRAN}
+\appendix
+\inappendixtrue
+
+\chapter{DOKUMENTASI}
+
+Berikut adalah beberapa dokumentasi tangkapan layar dari percobaan yang dilakukan pada sistem.
+
+\insertimage{assets/contoh-gambar.png}{Tampilan awal basis data}{fig:lampiran-1}
+
+\insertimage{assets/contoh-gambar.png}{Tabel audit setelah disisipkan trigger}{fig:lampiran-2}
+
+\chapter{SOURCE CODE}
+
+\begin{lstlisting}[language=SQL, caption={Skrip lengkap pembuatan tabel \texttt{transaksi\_audit}}]
+CREATE TABLE transaksi_audit (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    id_trans    INT NOT NULL,
+    aksi        VARCHAR(10) NOT NULL,
+    data_lama   TEXT,
+    data_baru   TEXT,
+    waktu       DATETIME DEFAULT NOW()
+);
+\end{lstlisting}
+
+\chapter{DATA PENGUJIAN}
+
+Contoh data pengujian tertera pada tabel berikut.
+
+\begin{table}[H]
+    \centering
+    \caption{Sampel Data Masukan Uji Coba}
+    \label{tab:data-lampiran}
+    \begin{tabularx}{\textwidth}{@{} c c X @{}}
+        \toprule
+        \textbf{No.} & \textbf{Nama Kasus} & \textbf{Keterangan} \\
+        \midrule
+        1 & Tambah data baru & INSERT ke tabel transaksi \\
+        2 & Ubah transaksi & UPDATE nilai nominal \\
+        3 & Hapus transaksi & DELETE berdasarkan ID \\
+        \bottomrule
+    \end{tabularx}
+\end{table}

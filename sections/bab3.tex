@@ -1,0 +1,51 @@
+\chapter{METODOLOGI}
+
+\section{Struktur Tabel}
+Dalam percobaan ini, digunakan contoh dua tabel: tabel operasional dan tabel audit.
+
+\begin{table}[H]
+    \centering
+    \caption{Skema Tabel Transaksi}
+    \label{tab:skema}
+    \begin{tabularx}{\textwidth}{@{} l l X @{}}
+        \toprule
+        \textbf{Kolom} & \textbf{Tipe Data} & \textbf{Keterangan} \\
+        \midrule
+        \texttt{id} & \texttt{INT} & \textit{Primary Key} \\
+        \texttt{nominal} & \texttt{DECIMAL} & Nilai transaksi masuk / keluar \\
+        \texttt{keterangan} & \texttt{VARCHAR} & Identitas atau detil ringkas laporan transaksi \\
+        \texttt{user\_id} & \texttt{INT} & Mengacu ke aktor aplikasi (\textit{Foreign Key}) \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Berdasarkan Tabel~\ref{tab:skema}, setiap baris memuat keterangan dan nilai uang untuk kebutuhan transaksi.
+
+\section{Pembuatan Prosedur Dasar}
+Kode berikut akan diujicobakan pada ekosistem basis data.
+
+\begin{lstlisting}[language=SQL, caption={Contoh Query trigger audit}]
+CREATE TRIGGER trg_setelah_update
+AFTER UPDATE ON transaksi
+FOR EACH ROW
+BEGIN
+    INSERT INTO transaksi_audit (id_trans, aksi, waktu)
+    VALUES (OLD.id, 'UBAH', NOW());
+END;
+\end{lstlisting}
+
+\section{Pembuatan Prosedur Lanjutan Aplikasi}
+
+Pada aplikasi, panggilan kueri diproses dalam blok \textcite{masri2021}, agar dapat dievaluasi apabila status rekam gagal tereksekusi.
+
+\begin{lstlisting}[language=TypeScript, caption={Contoh integrasi kueri pada aplikasi TypeScript}]
+async function updateTransaction(id: number, money: number) {
+  const db = await connect();
+  try {
+    await db.execute(`UPDATE transaksi SET nominal = ? WHERE id = ?`, [money, id]);
+    // Triggers will automatically act on DB
+  } catch (error) {
+    console.error("Gagal melakukan ubah.", error);
+  }
+}
+\end{lstlisting}
