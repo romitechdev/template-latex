@@ -162,7 +162,7 @@ Since this is a git repo, you have a few options:
 
 ```bash
 # Fresh copy per assignment (cleanest)
-git clone <your-repo-url> assignment-2
+git clone https://github.com/romitechdev/template-latex assignment-2
 cd assignment-2
 # edit metadata.tex + sections, compile, done.
 
