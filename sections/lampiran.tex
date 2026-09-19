@@ -4,41 +4,37 @@
 \inappendixtrue
 
 \chapter{DOKUMENTASI}
+Lampiran ini berisi tangkapan layar atau dokumentasi visual yang mendukung isi laporan. Setiap tangkapan layar diberi caption yang menjelaskan apa yang ditampilkan dan dalam konteks apa ia diambil.
 
-Berikut adalah beberapa dokumentasi tangkapan layar dari percobaan yang dilakukan pada sistem.
+\insertimage{assets/contoh-gambar.png}{Tangkapan layar pertama yang menunjukkan hasil awal}{fig:lampiran-1}
 
-\insertimage{assets/contoh-gambar.png}{Tampilan awal basis data}{fig:lampiran-1}
-
-\insertimage{assets/contoh-gambar.png}{Tabel audit setelah disisipkan trigger}{fig:lampiran-2}
+\insertimage{assets/contoh-gambar.png}{Tangkapan layar kedua yang menunjukkan hasil akhir}{fig:lampiran-2}
 
 \chapter{SOURCE CODE}
+Lampirkan kode lengkap atau skrip yang tidak muat atau tidak relevan untuk ditampilkan di bab pembahasan. Kode di sini tidak harus diberi penjelasan detail; cukup caption singkat yang menyebutkan apa fungsinya.
 
-\begin{lstlisting}[language=SQL, caption={Skrip lengkap pembuatan tabel \texttt{transaksi\_audit}}]
-CREATE TABLE transaksi_audit (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
-    id_trans    INT NOT NULL,
-    aksi        VARCHAR(10) NOT NULL,
-    data_lama   TEXT,
-    data_baru   TEXT,
-    waktu       DATETIME DEFAULT NOW()
+\begin{lstlisting}[language=SQL, caption={Skrip lengkap pembuatan tabel}]
+CREATE TABLE contoh (
+    id    INT AUTO_INCREMENT PRIMARY KEY,
+    nama  VARCHAR(100) NOT NULL,
+    dibuat DATETIME DEFAULT NOW()
 );
 \end{lstlisting}
 
-\chapter{DATA PENGUJIAN}
-
-Contoh data pengujian tertera pada tabel berikut.
+\chapter{DATA TAMBAHAN}
+Data mentah, hasil pengujian, atau tabel referensi yang terlalu panjang untuk diletakkan di bab utama bisa dipindahkan ke sini.
 
 \begin{table}[H]
     \centering
-    \caption{Sampel Data Masukan Uji Coba}
+    \caption{Contoh data pengujian}
     \label{tab:data-lampiran}
     \begin{tabularx}{\textwidth}{@{} c c X @{}}
         \toprule
-        \textbf{No.} & \textbf{Nama Kasus} & \textbf{Keterangan} \\
+        \textbf{No.} & \textbf{Kasus} & \textbf{Keterangan} \\
         \midrule
-        1 & Tambah data baru & INSERT ke tabel transaksi \\
-        2 & Ubah transaksi & UPDATE nilai nominal \\
-        3 & Hapus transaksi & DELETE berdasarkan ID \\
+        1 & Kasus A & Penjelasan untuk kasus A \\
+        2 & Kasus B & Penjelasan untuk kasus B \\
+        3 & Kasus C & Penjelasan untuk kasus C \\
         \bottomrule
     \end{tabularx}
 \end{table}

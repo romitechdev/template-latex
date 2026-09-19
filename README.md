@@ -2,6 +2,16 @@
 
 A reusable LaTeX template for university assignments — lab reports, papers, project docs, whatever your lecturer throws at you. Set up your identity once, swap content per assignment, done.
 
+## Preview
+
+| Cover | Table of Contents | Body Text |
+|:---:|:---:|:---:|
+| ![](assets/screenshoot_hasil/cover.png) | ![](assets/screenshoot_hasil/daftar_isi.png) | ![](assets/screenshoot_hasil/isi.png) |
+
+| Images & Tables | Bibliography |
+|:---:|:---:|
+| ![](assets/screenshoot_hasil/gambar.png) | ![](assets/screenshoot_hasil/daftar_pustaka.png) |
+
 ## What's Inside
 
 ```
@@ -21,7 +31,8 @@ template-latex/
 │   └── references.bib       # Bibliography database (BibLaTeX).
 ├── assets/
 │   ├── logo-unesa.png       # University logo for the cover.
-│   └── contoh-gambar.png    # Sample image. Replace with your own.
+│   ├── contoh-gambar.png    # Sample image. Replace with your own.
+│   └── screenshoot_hasil/   # Reference screenshots of the compiled output.
 └── main.pdf                 # Last compiled output.
 ```
 
@@ -30,16 +41,16 @@ template-latex/
 Open `config/metadata.tex`. This is the only file you touch to change who's on the cover:
 
 ```latex
-\newcommand{\documenttype}{Laporan Praktikum}   % e.g. Makalah, Laporan Tugas, Laporan Proyek
-\newcommand{\documenttitle}{Your assignment title}
-\newcommand{\coursename}{Advanced Database}
-\newcommand{\lecturername}{Lecturer Name, M.Cs.}
-\newcommand{\studentname}{Your Name}
-\newcommand{\studentnim}{Your NIM}
-\newcommand{\studentclass}{Your Class}
-\newcommand{\studyprogram}{Information Systems Study Program}
-\newcommand{\faculty}{Faculty of Engineering}
-\newcommand{\university}{Surabaya State University}
+\newcommand{\documenttype}{Laporan}   % e.g. Makalah, Laporan Tugas, Laporan Proyek
+\newcommand{\documenttitle}{Judul Tugas Anda Di Sini}
+\newcommand{\coursename}{Nama Mata Kuliah}
+\newcommand{\lecturername}{Nama Dosen, M.Kom.}
+\newcommand{\studentname}{Nama Anda}
+\newcommand{\studentnim}{NIM Anda}
+\newcommand{\studentclass}{Kelas Anda}
+\newcommand{\studyprogram}{Program Studi Sistem Informasi}
+\newcommand{\faculty}{Fakultas Teknik}
+\newcommand{\university}{Universitas Negeri Surabaya}
 \newcommand{\reportyear}{2026}
 ```
 
@@ -49,7 +60,7 @@ The title on the cover gets uppercased automatically, so just type it normally.
 
 1. **Clone or copy** this repo into a new folder.
 2. **Edit `config/metadata.tex`** — new title, course, lecturer.
-3. **Rewrite the chapters** in `sections/bab1.tex` through `bab5.tex`. Each file starts with `\chapter{TITLE}` followed by your content.
+3. **Rewrite the chapters** in `sections/bab1.tex` through `bab5.tex`. Each file starts with `\chapter{TITLE}` followed by your content. The current chapter files contain writing guides as placeholder text — replace them with your own content.
 4. **Tweak `sections/lampiran.tex`** if your appendices differ (screenshots, code, data tables).
 5. **Compile** (see below).
 
@@ -59,7 +70,7 @@ If a chapter doesn't apply, just clear its content or comment out the `\include{
 
 ### Tables
 
-Standard `tabularx` works out of the box. There's a working example in `sections/bab3.tex`:
+Standard `tabularx` works out of the box. There's a working example in `sections/bab2.tex`:
 
 ```latex
 \begin{table}[H]
@@ -76,7 +87,7 @@ Standard `tabularx` works out of the box. There's a working example in `sections
 \end{table}
 ```
 
-Reference it with `Table~\ref{tab:mylabel}`.
+Reference it with `Tabel~\ref{tab:mylabel}`.
 
 ### Images
 
@@ -86,7 +97,7 @@ Drop files into `assets/` (or `assets/images/`) and use the helper:
 \insertimage{assets/my-image.png}{Caption text}{fig:mylabel}
 ```
 
-Then reference with `Figure~\ref{fig:mylabel}`.
+Then reference with `Gambar~\ref{fig:mylabel}`.
 
 If the file doesn't exist yet, it renders a gray placeholder box instead of breaking the build. Useful when you're writing ahead of your screenshots.
 
@@ -107,9 +118,11 @@ Listings are numbered per chapter (Kode 1.1, Kode 2.3, etc.).
 Add entries to `references/references.bib` (standard BibLaTeX format). Then in your text:
 
 ```latex
-\textcite{key}       % → Silberschatz et al. (2019)
-\parencite{key}      % → (Korth, 2020)
+\textcite{key}       % → Silberschatz et al. (2020)
+\parencite{key}      % → (Masri and Suhartini, 2021)
 ```
+
+Three entry types are pre-loaded as examples: `@book`, `@article`, `@inproceedings`. The bibliography renders with a hanging indent (1.27 cm).
 
 ## Compiling
 
@@ -139,6 +152,7 @@ Zip the whole folder, upload via *New Project → Upload Project*. Overleaf pick
 - **Front matter** (preface, TOC, list of tables/figures) uses Roman page numbers. Body starts at 1.
 - **Table/figure captions** are numbered per chapter: Gambar 2.1, Tabel 3.2, etc.
 - **Headers:** running chapter title on the left, page number centered in the footer.
+- **Bibliography:** hanging indent 1.27 cm, `authoryear` style.
 
 All of this lives in `config/settings.tex` if you need to tweak it.
 

@@ -1,23 +1,48 @@
-\chapter{HASIL DAN PEMBAHASAN}
+\chapter{HASIL}
 
-\section{Skenario Uji Coba}
-Pengujian dilakukan terhadap sekumpulan entitas log untuk memeriksa ketahanan integrasi sesuai standar.
+\section{Ringkasan Hasil}
+Sajikan hasil dari pekerjaan Anda di sini. Jika hasil berupa data numerik, tampilkan dalam tabel agar mudah dibaca dan dibandingkan. Jika hasilnya berupa keluaran dari suatu proses, tampilkan tangkapan layar atau cuplikan outputnya.
+
+Setiap hasil yang ditampilkan harus memiliki caption dan label agar bisa dirujuk. Jangan hanya meletakkan tabel atau gambar tanpa penjelasan; selalu disertai paragraf yang merangkum apa yang ditunjukkan dan apa implikasinya.
 
 \begin{table}[H]
     \centering
-    \caption{Data Hasil Pengujian Trigger}
-    \label{tab:pengujian}
-    \begin{tabularx}{\textwidth}{@{} c c X c @{}}
+    \caption{Contoh rekap hasil pengujian}
+    \label{tab:hasil}
+    \begin{tabularx}{\textwidth}{@{} c l X c @{}}
         \toprule
-        \textbf{ID Tes} & \textbf{Jenis DML} & \textbf{Hasil pada Log} & \textbf{Status Target} \\
+        \textbf{No.} & \textbf{Skenario} & \textbf{Keterangan} & \textbf{Status} \\
         \midrule
-        1 & INSERT & Memunculkan catatan `BARU` di tabel log & Berhasil \\
-        2 & UPDATE & Memunculkan catatan `UBAH` di tabel log & Berhasil \\
-        3 & DELETE & Memunculkan catatan `HAPUS` di tabel log & Berhasil \\
-        4 & DROP & Tidak terekam (Sesuai DDL definition) & Sesuai \\
+        1 & Skenario pertama & Penjelasan singkat tentang apa yang diuji & Berhasil \\
+        2 & Skenario kedua & Penjelasan singkat tentang apa yang diuji & Berhasil \\
+        3 & Skenario ketiga & Penjelasan singkat tentang apa yang diuji & Perlu revisi \\
         \bottomrule
     \end{tabularx}
 \end{table}
 
-\section{Pembahasan}
-Berlandaskan hasil pada Tabel~\ref{tab:pengujian}, penggunaan \textit{trigger} berhasil memastikan tidak adanya transaksi manipulasi data tunggal yang gagal dicatat pada entri basis data. Pendekatan DML (\textit{Data Manipulation Language}) direkam dalam bentuk salinan keadaan sebelum (\texttt{OLD}) dan entri setelah diperbarui (\texttt{NEW}).
+\section{Analisis}
+Analisis adalah bagian di mana Anda menafsirkan hasil. Jelaskan apa arti angka-angka atau keluaran yang telah Anda sajikan. Apakah hasilnya sesuai dengan yang diharapkan? Jika ada penyimpangan, apa kemungkinan penyebabnya dan bagaimana Anda menyikapi?
+
+Kaitkan kembali analisis dengan rumusan masalah dan tujuan dari bab pendahuluan. Setiap tujuan yang telah Anda tetapkan seharusnya bisa dijawab atau dibuktikan melalui hasil dan analisis di sini. Jika ada tujuan yang tidak sepenuhnya tercapai, akui hal tersebut secara jujur dan jelaskan alasannya.
+
+\section{Perbandingan (Opsional)}
+Jika relevan, bandingkan hasil Anda dengan hasil dari metode lain atau dengan kondisi awal. Perbandingan memperkaya analisis karena menunjukkan selisih dan manfaat yang ditimbulkan. Gunakan tabel perbandingan jika datanya terstruktur, atau paragraf naratif jika perbandingannya lebih kualitatif.
+
+Contoh format tabel perbandingan:
+
+\begin{table}[H]
+    \centering
+    \caption{Perbandingan sebelum dan sesudah penerapan}
+    \label{tab:perbandingan}
+    \begin{tabularx}{\textwidth}{@{} l c c c @{}}
+        \toprule
+        \textbf{Metrik} & \textbf{Sebelum} & \textbf{Sesudah} & \textbf{Perubahan} \\
+        \midrule
+        Waktu proses & 120 detik & 45 detik & $-$62\% \\
+        Tingkat kesalahan & 8\% & 2\% & $-$6\% \\
+        Kapasitas harian & 500 record & 1200 record & $+$140\% \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Berdasarkan Tabel~\ref{tab:perbandingan}, terlihat bahwa penerapan metode baru menghasilkan penurunan waktu proses yang signifikan serta peningkatan kapasitas. Rujuk tabel dari teks dan jelaskan mana metrik yang paling penting dan mengapa.
